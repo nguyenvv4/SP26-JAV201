@@ -17,7 +17,8 @@ public class HibernateUtils {
         Configuration conf = new Configuration();
 
         Properties properties = new Properties();
-        properties.put(Environment.DIALECT, "org.hibernate.dialect.SQLServerDialect");
+//        properties.put(Environment.DIALECT, "org.hibernate.dialect.SQLServerDialect");
+        properties.put(Environment.DIALECT, "org.hibernate.dialect.SQLServer2012Dialect");
         properties.put(Environment.DRIVER, "com.microsoft.sqlserver.jdbc.SQLServerDriver");
         properties.put(Environment.URL, "jdbc:sqlserver://localhost:1433;databaseName=PolyOE;Encrypt=True;TrustServerCertificate=True");
         properties.put(Environment.USER, "sa");

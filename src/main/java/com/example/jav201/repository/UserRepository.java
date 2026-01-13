@@ -18,8 +18,7 @@ public class UserRepository {
         return query.getResultList();
     }
 
-    public List<User> page() {
-        int page = 1;     // bắt đầu từ 1
+    public List<User> page(int page) {
         int size = 3;
         List<User> data = new ArrayList<>();
         try (Session session = HibernateUtils.getFACTORY().openSession()) {
@@ -27,7 +26,7 @@ public class UserRepository {
                     "SELECT u FROM User u",
                     User.class
             );
-            q.setFirstResult((page - 1) * size);
+            q.setFirstResult(page * size);
             q.setMaxResults(size);
             data = q.list();
         } catch (Exception e) {
@@ -38,7 +37,7 @@ public class UserRepository {
 
     public static void main(String[] args) {
         UserRepository userRepository = new UserRepository();
-        List<User> userList = userRepository.page();
+        List<User> userList = userRepository.page(1);
         for (User user : userList) {
             System.out.println(user);
         }
