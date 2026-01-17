@@ -12,10 +12,10 @@
     <title>Title</title>
 </head>
 <body>
-<form action="">
+<form action="/user/create" method="post">
     <label>Id: <input type="text" name="id"></label> <br>
-    <label>Fullname: <input type="text" name="fullname"></label> <br>
-    <label>Password: <input type="text" name="password"></label> <br>
+    <label>Fullname: <input type="text" name="fullName"></label> <br>
+    <label>Pw: <input type="text" name="password"></label> <br>
     <label>Email: <input type="text" name="email"></label> <br>
     <label>Role: <input type="radio" name="admin" value="true">Admin
         <input type="radio" name="admin" value="false">User</label> <br>

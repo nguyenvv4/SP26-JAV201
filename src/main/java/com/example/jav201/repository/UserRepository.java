@@ -4,6 +4,7 @@ import com.example.jav201.model.User;
 import com.example.jav201.ultis.HibernateUtils;
 import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.ArrayList;
@@ -34,6 +35,20 @@ public class UserRepository {
         }
         return data;
     }
+
+    public void add(User user) {
+        System.out.println(user);
+        Session session = HibernateUtils.getFACTORY().openSession();
+        Transaction tran = session.beginTransaction();
+        try {
+            session.save(user);
+            tran.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            tran.rollback();
+        }
+    }
+
 
     public static void main(String[] args) {
         UserRepository userRepository = new UserRepository();
