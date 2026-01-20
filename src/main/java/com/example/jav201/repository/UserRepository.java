@@ -49,6 +49,45 @@ public class UserRepository {
         }
     }
 
+    public void delete(User user) {
+        System.out.println(user);
+        Session session = HibernateUtils.getFACTORY().openSession();
+        Transaction tran = session.beginTransaction();
+        try {
+            session.delete(user);
+            tran.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            tran.rollback();
+        }
+    }
+
+    public void update(User user) {
+        System.out.println(user);
+        Session session = HibernateUtils.getFACTORY().openSession();
+        Transaction tran = session.beginTransaction();
+        try {
+            // dung saveOrUpdate khi Id tu tang.
+            // neu khong truyen id(Trong TH id tu tang => tu hieu ham save duoc chay
+            // nguoc lai la update
+            //session.saveOrUpdate(user);
+            // trong trong hop id khong tu tang=> dung ham update
+            session.update(user);
+            tran.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            tran.rollback();
+        }
+    }
+
+    public User findById(String idUser) {
+        Session session = HibernateUtils.getFACTORY().openSession();
+        String jpql = "Select u from User u where u.id = :id";
+        TypedQuery<User> query = session.createQuery(jpql);
+        // "id" la :id trong jpql
+        query.setParameter("id", idUser);
+        return query.getSingleResult();
+    }
 
     public static void main(String[] args) {
         UserRepository userRepository = new UserRepository();

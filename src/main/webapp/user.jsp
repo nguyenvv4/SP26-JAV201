@@ -39,7 +39,8 @@
             <td>${user.fullName}</td>
             <td>${user.email}</td>
             <td>${user.admin == true ? 'Admin':'User'}</td>
-            <td>Edit</td>
+            <td><a href="/user/detail?id=${user.id}">Edit</a></td>
+            <td><a href="/user/delete?id=${user.id}">Delete</a></td>
         </tr>
     </c:forEach>
     </tbody>
