@@ -1,6 +1,8 @@
 package com.example.jav201.repository;
 
+import com.example.jav201.model.Favorite;
 import com.example.jav201.model.User;
+import com.example.jav201.model.Video;
 import com.example.jav201.ultis.HibernateUtils;
 import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
@@ -91,10 +93,12 @@ public class UserRepository {
 
     public static void main(String[] args) {
         UserRepository userRepository = new UserRepository();
-        List<User> userList = userRepository.page(1);
-        for (User user : userList) {
-            System.out.println(user);
-        }
+//        List<User> userList = userRepository.getList();
+//        for (User user : userList) {
+//            System.out.println(user.getFavorites());
+//        }
+
+
     }
 
 }

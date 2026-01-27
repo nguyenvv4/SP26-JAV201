@@ -1,6 +1,8 @@
 package com.example.jav201.ultis;
 
+import com.example.jav201.model.Favorite;
 import com.example.jav201.model.User;
+import com.example.jav201.model.Video;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -31,6 +33,8 @@ public class HibernateUtils {
 //        conf.addAnnotatedClass(SanPham.class);
 //        conf.addAnnotatedClass(DanhMuc.class);
         conf.addAnnotatedClass(User.class);
+        conf.addAnnotatedClass(Favorite.class);
+        conf.addAnnotatedClass(Video.class);
         ServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .applySettings(conf.getProperties()).build();
         FACTORY = conf.buildSessionFactory(registry);

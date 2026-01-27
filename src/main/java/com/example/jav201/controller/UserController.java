@@ -53,18 +53,18 @@ public class UserController extends HttpServlet {
             String pw = request.getParameter("password");
             Boolean admin = Boolean.parseBoolean(request.getParameter("admin"));
             // luu y thu tu phai giong trong user
-            User user = new User(id, pw, name, email, admin);
-            System.out.println(user.toString());
-            userRepository.add(user);
-            response.sendRedirect("/user/show");
+//            User user = new User(id, pw, name, email, admin);
+//            System.out.println(user.toString());
+//            userRepository.add(user);
+//            response.sendRedirect("/user/show");
         } else if (uri.contains("/user/update")) {
             String id = request.getParameter("id");
             String name = request.getParameter("fullName");
             String email = request.getParameter("email");
             String pw = request.getParameter("password");
             Boolean admin = Boolean.parseBoolean(request.getParameter("admin"));
-            User user = new User(id, pw, name, email, admin);
-            userRepository.update(user);
+//            User user = new User(id, pw, name, email, admin);
+//            userRepository.update(user);
             response.sendRedirect("/user/show");
         }
     }
